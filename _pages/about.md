@@ -1,13 +1,14 @@
 ---
 layout: page
-title: About Me
+title: About
 permalink: /about/
 ---
 
-This is where you put the contents of your *About* page. Like all your pages, it's in [Markdown](https://guides.github.com/features/mastering-markdown/) format.
-
-This website is powered by **[fastpages](https://github.com/fastai/fastpages)** [^1].
+Course project blog for UT Neural Network Course 2019/20 Spring.
 
 
+###Authors:
 
-[^1]:a blogging platform that natively supports Jupyter notebooks in addition to other formats.
+Erik Amor
+
+Georg Reintam

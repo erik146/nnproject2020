@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Predicting penalty outcome in football. | fastpages</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Predicting penalty outcome in football." />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Main post about the Neural Networks course project." />
+<meta property="og:description" content="Main post about the Neural Networks course project." />
+<link rel="canonical" href="https://erik146.github.io/nnproject2020/markdown/2020/06/14/main-post.html" />
+<meta property="og:url" content="https://erik146.github.io/nnproject2020/markdown/2020/06/14/main-post.html" />
+<meta property="og:site_name" content="fastpages" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-06-14T00:00:00-05:00" />
+<script type="application/ld+json">
+{"description":"Main post about the Neural Networks course project.","mainEntityOfPage":{"@type":"WebPage","@id":"https://erik146.github.io/nnproject2020/markdown/2020/06/14/main-post.html"},"@type":"BlogPosting","url":"https://erik146.github.io/nnproject2020/markdown/2020/06/14/main-post.html","headline":"Predicting penalty outcome in football.","dateModified":"2020-06-14T00:00:00-05:00","datePublished":"2020-06-14T00:00:00-05:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/nnproject2020/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://erik146.github.io/nnproject2020/feed.xml" title="fastpages" /><link rel="shortcut icon" type="image/x-icon" href="/nnproject2020/images/favicon.ico"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Predicting penalty outcome in football. | fastpages</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Predicting penalty outcome in football." />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Main post about the Neural Networks course project." />
+<meta property="og:description" content="Main post about the Neural Networks course project." />
+<link rel="canonical" href="https://erik146.github.io/nnproject2020/markdown/2020/06/14/main-post.html" />
+<meta property="og:url" content="https://erik146.github.io/nnproject2020/markdown/2020/06/14/main-post.html" />
+<meta property="og:site_name" content="fastpages" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-06-14T00:00:00-05:00" />
+<script type="application/ld+json">
+{"description":"Main post about the Neural Networks course project.","mainEntityOfPage":{"@type":"WebPage","@id":"https://erik146.github.io/nnproject2020/markdown/2020/06/14/main-post.html"},"@type":"BlogPosting","url":"https://erik146.github.io/nnproject2020/markdown/2020/06/14/main-post.html","headline":"Predicting penalty outcome in football.","dateModified":"2020-06-14T00:00:00-05:00","datePublished":"2020-06-14T00:00:00-05:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+<link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css"><link type="application/atom+xml" rel="alternate" href="https://erik146.github.io/nnproject2020/feed.xml" title="fastpages" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head><body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/nnproject2020/">fastpages</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/nnproject2020/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Predicting penalty outcome in football.</h1><p class="page-description">Main post about the Neural Networks course project.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-06-14T00:00:00-05:00" itemprop="datePublished">
+        Jun 14, 2020
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      6 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/nnproject2020/categories/#markdown">markdown</a>
+        
+      
+      </p>
+    
+
+    </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h1"><a href="#predicting-penalty-outcome-in-football-based-on-early-signs-before-the-ball-reaches-the-goal-line">Predicting penalty outcome in football based on early signs, before the ball reaches the goal line.</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#main-idea">Main idea</a></li>
+<li class="toc-entry toc-h2"><a href="#the-dataset">The dataset</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#analysing-the-data">Analysing the data</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#difficulties">Difficulties</a></li>
+<li class="toc-entry toc-h2"><a href="#testing">Testing</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#tests-with-small-dataset-and-without-player-information">Tests with small dataset and without player information</a></li>
+<li class="toc-entry toc-h3"><a href="#tests-with-full-dataset-using-different-network-structure">Tests with full dataset using different network structure</a></li>
+<li class="toc-entry toc-h3"><a href="#testing-with-different-data">Testing with different data</a></li>
+<li class="toc-entry toc-h3"><a href="#conclusions">Conclusions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul><h1 id="predicting-penalty-outcome-in-football-based-on-early-signs-before-the-ball-reaches-the-goal-line">
+<a class="anchor" href="#predicting-penalty-outcome-in-football-based-on-early-signs-before-the-ball-reaches-the-goal-line" aria-hidden="true"><span class="octicon octicon-link"></span></a>Predicting penalty outcome in football based on early signs, before the ball reaches the goal line.</h1>
+
+<h2 id="main-idea">
+<a class="anchor" href="#main-idea" aria-hidden="true"><span class="octicon octicon-link"></span></a>Main idea</h2>
+
+<p>Test Test</p>
+
+<p>In football, there are lots of predictions made at all times.
+Starting from friends amongst fans arguing and ending with big worldwide betting companies.
+Most often it is considered if a match is won by one or another team, but also some statistical results are considered.</p>
+
+<p>In this project a smaller event, namely penalty kick is considered.
+Despite of being a short event itself it causes lot of exitement and waiting for the result.
+All kinds of signs are noted during the penalty kick, starting from the facts of who is the goalkeeper and who is actually taking the penalty shot.
+The next signs are, which foot the kicker uses and which directions the ball moves to.
+At that moment the audience can also see which side the goalkeeper decides to jump.
+And these signs are the key concept used in this project that aims to predict whether the ball ends up in the net or not based on the information above.</p>
+
+<h2 id="the-dataset">
+<a class="anchor" href="#the-dataset" aria-hidden="true"><span class="octicon octicon-link"></span></a>The dataset</h2>
+
+<p>For training the network, a dataset from Kaggle is used, that contains all of the fields listed above for every penalty taken during English Premier League in 2016/17 season.
+The dataset also contains several fields that are not important for the binary prediction that is made in this project. For example the end result of the match does not give any input to the penalty at the time it was taken. Also it should not be that important what team was playing, but the player and goalkeeper themselves.</p>
+
+<p>We chose that suggested dataset, because, although being not too big, it already contains the necessary data.
+It was also noted, that this kind of dataset is easily constructable for whatever match, because penalties are often higlighted in short highlights video and therefore the necessary information can be rather quickly collected and added to the network.</p>
+
+<p>Looking at options available, following data fields were chosen to be used in the first iteration of this project:</p>
+
+<ul>
+  <li>Match Week
+    <ul>
+      <li>It may affect the result. At the beginning of the season there is lot less pressure and concentration level and physique of the player might not be at its best yet.</li>
+    </ul>
+  </li>
+  <li>Player(Kicker)
+    <ul>
+      <li>Before the penalty kick we also know the history of the player. For this reason stats are collected from tranfermarket.com and added to the dataset. Also it would be beneficial to add where the player most usually hits, but this information is still not available.</li>
+    </ul>
+  </li>
+  <li>Time of penalty awarded
+    <ul>
+      <li>Fatigue affects the result</li>
+    </ul>
+  </li>
+  <li>Kick Direction
+    <ul>
+      <li>Left/right/center – In which way was the ball going?</li>
+    </ul>
+  </li>
+  <li>Goal keeper direction
+    <ul>
+      <li>Which way did the goalkeeper jump. Here it would be beneficial to also find out, if the goalkeeper jumped to the right direction.</li>
+    </ul>
+  </li>
+  <li>Match
+    <ul>
+      <li>From this we can find out who was the goalkeeper and add the data from the past results.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="analysing-the-data">
+<a class="anchor" href="#analysing-the-data" aria-hidden="true"><span class="octicon octicon-link"></span></a>Analysing the data</h3>
+
+<p>The dataset was analyzed also in the Kaggle page where it was taken from. It was shown there, that there are lots of correlations among the dataset, which suggests that neural networks should be capable of learning even bigger relations with enough data, between the parameters and the outcome of the penalty.</p>
+
+<h2 id="difficulties">
+<a class="anchor" href="#difficulties" aria-hidden="true"><span class="octicon octicon-link"></span></a>Difficulties</h2>
+
+<p>Though there are some difficulties, when feeding this kind of data to a neural network, as it has to be considered, that the goalkeeper and player are not well representable in numerical value, that would be straight usable in numeric analysis. So, it has to be considered when designing a network, that the network should be capable of categorizing the actors in those kicks somehow, so that the information is possible to combine with other parameters and therefore combined with other inputs.</p>
+
+<p>For this reason the kicker and goalkeeper should be presented with relevant statistical data. This data could be looked up separately from databases or even calculated priorly using the information from the same dataset that is used for this network (the average jumping direction or percent of saved penalties).</p>
+
+<h2 id="testing">
+<a class="anchor" href="#testing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Testing</h2>
+
+<h3 id="tests-with-small-dataset-and-without-player-information">
+<a class="anchor" href="#tests-with-small-dataset-and-without-player-information" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tests with small dataset and without player information</h3>
+
+<p>The first tests were made with simplest network, only taking the ball direction and goalkeeper direction as input and using simple fully connected neural network to predict the result.</p>
+
+<h3 id="tests-with-full-dataset-using-different-network-structure">
+<a class="anchor" href="#tests-with-full-dataset-using-different-network-structure" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tests with full dataset using different network structure</h3>
+
+<p>When it was seen how all parameters effect the outcome of the simple network, there were several structural changes made to the network, including changing the learning rate, layer count and sizes and also adding different layer types and activation function were tested.</p>
+
+<p>After the data had been converted to numerical format and all unneccesary and unusable fields were removed, we created a simple network with fully connected layers to see how the data behaves.
+The inputs to that network ended up being the match week of the tournament, the kick direction, if the kick was made with left or right foot, the direction that the goalkeeper first jumped, on which time in the match was the penalty given and the accuracy of the player who takes the penalty shot.
+The network consisted of 5 hidden layers to give the network the ability to learn deeper relations within the data. There were no convolutional layers used, because the structure of the data would not make use of applying same filter over different locations as there is different types of information in the input. Also any features the network extracts should be of different type.
+When choosing the sizes for the network, it had to be kept in mind, that the dataset was quite small and making very large layers would make it even easier to overfit our data. So the layer sizes were chosen to be 10, 50, 50, 20 and 10, which gives it more freedom in the middle section and approaches conclusions towards the end. As the optimizer, ADAM was chosen and simple ReLu activation was used in each hidden layer.
+As expected for relatively small dataset, the results showed signs of overfitting with the training accuracy being significantly higher than the validation accuracy. But still the network achieved 60%-80% test accuracy, which is better than 50%, which would be average result for binary problem without any training.</p>
+
+<h3 id="testing-with-different-data">
+<a class="anchor" href="#testing-with-different-data" aria-hidden="true"><span class="octicon octicon-link"></span></a>Testing with different data</h3>
+
+<p>As the original network was trained on English Premiere League data, it was interesting to see, if we could gather some data from different leagues and if the network would produce similar results for those test cases.</p>
+
+<p>For this we collected same kind of information for 20 penalty kicks from different matches using online databases and added data that was missing from videos. (The actual process was the other way around as the video was looked for first, because it is harder to find videos than necessary player data from databases).</p>
+
+<p>Also we built simple random forest model, and these results were usually ~10% lower (but with much faster training time).</p>
+
+<h3 id="conclusions">
+<a class="anchor" href="#conclusions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Conclusions</h3>
+
+<p>Instatsport have done a massive research of penalties, where they researched almost 100 000 penalty shots around the globe - females and males. They concluded, that both female and males have around ~75% chance of succeeding. Therefor if you are always predicting, that the outcome of the kick is positive - then your accuracy is 75%.</p>
+
+<p>Our Data was aquired from different datasets, which we manipulated to get better result. Few of the inputs we normalized and others we one-hot encoded(1 and 0 values).</p>
+
+
+  </div><a class="u-url" href="/nnproject2020/markdown/2020/06/14/main-post.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/nnproject2020/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/nnproject2020/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/nnproject2020/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/fastai" title="fastai"><svg class="svg-icon grey"><use xlink:href="/nnproject2020/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/fastdotai" title="fastdotai"><svg class="svg-icon grey"><use xlink:href="/nnproject2020/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

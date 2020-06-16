@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://erik146.github.io/nnproject2020/feed.xml" rel="self" type="application/atom+xml" /><link href="https://erik146.github.io/nnproject2020/" rel="alternate" type="text/html" /><updated>2020-06-16T06:53:31-05:00</updated><id>https://erik146.github.io/nnproject2020/feed.xml</id><title type="html">fastpages</title><subtitle>An easy to use blogging platform with support for Jupyter Notebooks.</subtitle><entry><title type="html">Predicting penalty outcome in football.</title><link href="https://erik146.github.io/nnproject2020/markdown/2020/06/14/main-post.html" rel="alternate" type="text/html" title="Predicting penalty outcome in football." /><published>2020-06-14T00:00:00-05:00</published><updated>2020-06-14T00:00:00-05:00</updated><id>https://erik146.github.io/nnproject2020/markdown/2020/06/14/main-post</id><content type="html" xml:base="https://erik146.github.io/nnproject2020/markdown/2020/06/14/main-post.html">&lt;h1 id=&quot;predicting-penalty-outcome-in-football-based-on-early-signs-before-the-ball-reaches-the-goal-line&quot;&gt;Predicting penalty outcome in football based on early signs, before the ball reaches the goal line.&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://erik146.github.io/nnproject2020/feed.xml" rel="self" type="application/atom+xml" /><link href="https://erik146.github.io/nnproject2020/" rel="alternate" type="text/html" /><updated>2020-06-16T06:58:13-05:00</updated><id>https://erik146.github.io/nnproject2020/feed.xml</id><title type="html">fastpages</title><subtitle>An easy to use blogging platform with support for Jupyter Notebooks.</subtitle><entry><title type="html">Predicting penalty outcome in football.</title><link href="https://erik146.github.io/nnproject2020/markdown/2020/06/14/main-post.html" rel="alternate" type="text/html" title="Predicting penalty outcome in football." /><published>2020-06-14T00:00:00-05:00</published><updated>2020-06-14T00:00:00-05:00</updated><id>https://erik146.github.io/nnproject2020/markdown/2020/06/14/main-post</id><content type="html" xml:base="https://erik146.github.io/nnproject2020/markdown/2020/06/14/main-post.html">&lt;h1 id=&quot;predicting-penalty-outcome-in-football-based-on-early-signs-before-the-ball-reaches-the-goal-line&quot;&gt;Predicting penalty outcome in football based on early signs, before the ball reaches the goal line.&lt;/h1&gt;
 
 &lt;h2 id=&quot;main-idea&quot;&gt;Main idea&lt;/h2&gt;
 
@@ -66,6 +66,8 @@ It was also noted, that this kind of dataset is easily constructable for whateve
 
 &lt;p&gt;For this reason the kicker and goalkeeper should be presented with relevant statistical data. This data could be looked up separately from databases or even calculated priorly using the information from the same dataset that is used for this network (the average jumping direction or percent of saved penalties).&lt;/p&gt;
 
+&lt;p&gt;&lt;img src=&quot;https://github.com/erik146/nnproject2020/blob/master/images/screenshot_2.png&quot; alt=&quot;alt text&quot; /&gt;&lt;/p&gt;
+
 &lt;h2 id=&quot;testing&quot;&gt;Testing&lt;/h2&gt;
 
 &lt;h3 id=&quot;tests-with-small-dataset-and-without-player-information&quot;&gt;Tests with small dataset and without player information&lt;/h3&gt;
@@ -82,6 +84,8 @@ The network consisted of 5 hidden layers to give the network the ability to lear
 When choosing the sizes for the network, it had to be kept in mind, that the dataset was quite small and making very large layers would make it even easier to overfit our data. So the layer sizes were chosen to be 10, 50, 50, 20 and 10, which gives it more freedom in the middle section and approaches conclusions towards the end. As the optimizer, ADAM was chosen and simple ReLu activation was used in each hidden layer.
 As expected for relatively small dataset, the results showed signs of overfitting with the training accuracy being significantly higher than the validation accuracy. But still the network achieved 60%-80% test accuracy, which is better than 50%, which would be average result for binary problem without any training.&lt;/p&gt;
 
+&lt;p&gt;&lt;img src=&quot;https://github.com/erik146/nnproject2020/blob/master/images/end_results.png&quot; alt=&quot;alt text&quot; /&gt;&lt;/p&gt;
+
 &lt;h3 id=&quot;testing-with-different-data&quot;&gt;Testing with different data&lt;/h3&gt;
 
 &lt;p&gt;As the original network was trained on English Premiere League data, it was interesting to see, if we could gather some data from different leagues and if the network would produce similar results for those test cases.&lt;/p&gt;
@@ -89,6 +93,8 @@ As expected for relatively small dataset, the results showed signs of overfittin
 &lt;p&gt;For this we collected same kind of information for 20 penalty kicks from different matches using online databases and added data that was missing from videos. (The actual process was the other way around as the video was looked for first, because it is harder to find videos than necessary player data from databases).&lt;/p&gt;
 
 &lt;p&gt;Also we built simple random forest model and simple decision tree model, and these results were usually lower and results were not as stabel as with NN. But one thing to think about is that the computation was much faster with ML algorithms.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://github.com/erik146/nnproject2020/blob/master/images/screenshot.png&quot; alt=&quot;alt text&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;###Future work&lt;/p&gt;
 
